@@ -1,0 +1,8 @@
+export class Professor{
+    idProfessor: number;
+    Nome: string;
+    Cargo: string;
+    Titulacao: string;
+    Telefone: string;
+    Email: string;
+}
