@@ -6,7 +6,8 @@ import { Aluno } from 'src/Model/aluno';
 
 
 const httpOptions ={
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({'Content-Type': 'application/json'}),
+  
 };
 const apiUrl = 'https://localhost:44397/api/datawin/alunos';
 
@@ -24,21 +25,30 @@ export class AlunoService {
       catchError(this.handleError('getAlunos',[]))
     );
   }
-  getProfessor(idAluno:number): Observable<Aluno>{
-    const url =`${apiUrl}/${idAluno}`;
+  getAluno(IdAluno:number): Observable<Aluno>{
+    debugger
+    const url = apiUrl + "/" + IdAluno;
     return this.http.get<Aluno>(url).pipe(
-      tap(_=> console.log(`Retornou aluno id=${idAluno}`)),
-      catchError(this.handleError<Aluno>(`getAlunos id=${idAluno}`))
+      tap(_=> console.log(`Retornou aluno id=${IdAluno}`)),
+      catchError(this.handleError<Aluno>(`getAlunos id=${IdAluno}`))
     )
   }
-    addAluno(aluno): Observable<Aluno>{
-      return this.http.post<Aluno>(apiUrl, aluno, httpOptions).pipe(
-        tap((aluno: Aluno) => console.log(`aluno adicionado com w/ id=${aluno.idAluno}`)),
+    addAluno(aluno: any): Observable<Aluno>{
+      return this.http.post<Aluno>(apiUrl+"/save", aluno, httpOptions).pipe(
+        tap((aluno: Aluno) => console.log(`aluno adicionado com w/ id=${aluno.IdAluno}`)),
         catchError(this.handleError<Aluno>(`addAluno`))
       );
     }
 
-    deleteAluno(id): Observable<Aluno>{
+    updateAluno(id: any, aluno): Observable<any> {
+      const url = `${apiUrl}/${id}`;
+      return this.http.put(url, aluno, httpOptions).pipe(
+        tap(_ => console.log(`atualiza o aluno com id=${id}`)),
+        catchError(this.handleError<any>('updateAluno'))
+      );
+    }
+
+    deleteAluno(id: any): Observable<Aluno>{
       const url = `${apiUrl}/delete/${id}`;
 
       return this.http.delete<Aluno>(url, httpOptions).pipe(

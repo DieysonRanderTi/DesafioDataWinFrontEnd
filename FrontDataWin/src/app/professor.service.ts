@@ -32,8 +32,8 @@ export class ProfessorService {
     )
   }
     addProfessor(professor): Observable<Professor>{
-      return this.http.post<Professor>(apiUrl, professor, httpOptions).pipe(
-        tap((professor: Professor) => console.log(`professor adicionado com w/ id=${professor.idProfessor}`)),
+      return this.http.post<Professor>(apiUrl+"/save", professor, httpOptions).pipe(
+        tap((professor: Professor) => console.log(`professor adicionado com w/ id=${professor.IdProfessor}`)),
         catchError(this.handleError<Professor>(`addProfessor`))
       );
     }
@@ -47,7 +47,13 @@ export class ProfessorService {
         );
     }
     
-  
+    updateProfessor(id: any, professor): Observable<any> {
+      const url = `${apiUrl}/${id}`;
+      return this.http.put(url, professor, httpOptions).pipe(
+        tap(_ => console.log(`atualiza o professor com id=${id}`)),
+        catchError(this.handleError<any>('updateProfessor'))
+      );
+    }
 
   private handleError<T> (operation = 'operation', result?: T){
     return (error: any): Observable<T> =>{

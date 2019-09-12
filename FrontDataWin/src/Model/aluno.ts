@@ -1,6 +1,6 @@
 export class Aluno{
-    idAluno: number;
-    Nome: string;
+    IdAluno: number;
+    NomeAluno: string;
     Telefone: string;
     Email: string;
     Endereco: string;

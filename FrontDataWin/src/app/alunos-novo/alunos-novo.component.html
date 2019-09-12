@@ -1,1 +1,25 @@
-<p>alunos-novo works!</p>
+<div>
+    <h3>Adicionar Novo Aluno</h3>
+  </div>
+  <form class="example-container" [formGroup]="alunoForm" (ngSubmit)="addAluno(alunoForm.value)">
+    <mat-form-field>
+      <input matInput name="NomeAluno" placeholder="Nome do Aluno" formControlName="NomeAluno">
+    </mat-form-field>
+    <mat-form-field>
+      <input  matInput name="Telefone" placeholder="Telefone" formControlName="Telefone">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="Email" placeholder="Email" formControlName="Email">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput name="Endereco" placeholder="Endereco" formControlName="Endereco">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput name="DataNascimento" placeholder="Data de nascimento" formControlName="DataNascimento">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput name="Cpf" placeholder="CPF" formControlName="Cpf">
+      </mat-form-field>
+  
+    <button type="submit" [disabled]="!alunoForm.valid" mat-button color="primary">Adicionar</button>
+  </form>

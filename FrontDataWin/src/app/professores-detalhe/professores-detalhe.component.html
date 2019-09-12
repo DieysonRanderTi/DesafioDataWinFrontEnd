@@ -1,1 +1,33 @@
-<p>professores-detalhe works!</p>
+<div class="example-container mat-elevation-z8">
+    <div class="example-loading-shade"
+         *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title><h2>{{professor.Nome}}</h2></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <dl>
+          <dt>Cargo:</dt>
+          <dd>{{professor.Cargo}}</dd>
+
+          <dt>Titulacao:</dt>
+          <dd>{{professor.Titulacao}}</dd>
+
+          <dt>Telefone:</dt>
+          <dd>{{professor.Telefone}}</dd>
+
+          <dt>Email</dt>
+          <dd>{{professor.Email}}</dd>
+
+        </dl>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button color="primary" class="teste" routerLink="/professores-edit/{{professor.IdProfessor}}"><mat-icon>edit</mat-icon> Editar</button>
+        <button mat-flat-button color="warn" (click)="deleteProfessor(professor.IdProfessor)"><mat-icon>delete</mat-icon> Excluir</button>
+        <button mat-flat-button color="accent" class="teste" routerLink="/professores"><mat-icon>home</mat-icon> Voltar</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+

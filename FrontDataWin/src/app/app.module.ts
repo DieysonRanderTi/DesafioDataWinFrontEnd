@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProfessoresComponent } from './professores/professores.component';
@@ -17,6 +18,13 @@ import { AlunosComponent } from './alunos/alunos.component';
 import { AlunosDetalheComponent } from './alunos-detalhe/alunos-detalhe.component';
 import { AlunosEditComponent } from './alunos-edit/alunos-edit.component';
 import { AlunosNovoComponent } from './alunos-novo/alunos-novo.component';
+import { ProfessorService } from './professor.service';
+import { AlunoService } from './aluno.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import ptBr from '@angular/common/locales/pt';
+
+registerLocaleData(ptBr)
 
 
 @NgModule({
@@ -34,8 +42,11 @@ import { AlunosNovoComponent } from './alunos-novo/alunos-novo.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,  
     MatButtonModule,
     MatInputModule,
     MatCardModule,
@@ -45,10 +56,11 @@ import { AlunosNovoComponent } from './alunos-novo/alunos-novo.component';
     MatSelectModule,
     MatSidenavModule,  
     MatTableModule,
-    MatToolbarModule,
-    LayoutModule
+    MatToolbarModule
   ],
-  providers: [],
+  providers: [HttpClient,
+              ProfessorService, 
+              AlunoService, { provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

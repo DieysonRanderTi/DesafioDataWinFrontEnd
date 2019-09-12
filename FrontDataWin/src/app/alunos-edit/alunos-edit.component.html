@@ -1,1 +1,26 @@
-<p>alunos-edit works!</p>
+<div>
+    <h3>Editar Aluno</h3>
+  </div>
+  <form class="example-container" [formGroup]="alunoForm" (ngSubmit)="updateAluno(alunoForm.value)">
+    <mat-form-field>
+      <input matInput name="NomeAluno" placeholder="Nome do Aluno" formControlName="NomeAluno">
+    </mat-form-field>
+    <mat-form-field>
+      <input  matInput name="Telefone" placeholder="Telefone" formControlName="Telefone">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="Email" placeholder="Email" formControlName="Email">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput name="Endereco" placeholder="Endereço" formControlName="Endereco">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput name="DataNascimento" placeholder="Data de Nascimento" formControlName="DataNascimento">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput name="Cpf" placeholder="Cpf" formControlName="Cpf">
+      </mat-form-field>
+
+    <button type="submit" [disabled]="!alunoForm.valid" mat-button color="primary" >Editar</button>
+    <button mat-flat-button color="accent" class="teste" routerLink="/alunos"><mat-icon>home</mat-icon> Voltar</button>
+  </form>

@@ -1,5 +1,5 @@
 export class Professor{
-    idProfessor: number;
+    IdProfessor: number;
     Nome: string;
     Cargo: string;
     Titulacao: string;

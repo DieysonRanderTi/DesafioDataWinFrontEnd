@@ -4,13 +4,13 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="nome">
                 <th mat-header-cell *matHeaderCellDef> Nome </th>
-                <td mat-cell *matCellDef="let aluno"> {{aluno.Nome}} </td>
+                <td mat-cell *matCellDef="let aluno"> {{aluno.NomeAluno}} </td>
               </ng-container>
             
               <!-- Weight Column -->
               <ng-container matColumnDef="telefone">
                 <th mat-header-cell *matHeaderCellDef> Telefone </th>
-                <td mat-cell *matCellDef="let professor"> {{professor.Telefone}} </td>
+                <td mat-cell *matCellDef="let aluno"> {{aluno.Telefone}} </td>
               </ng-container>
             
               <!-- Symbol Column -->
@@ -26,7 +26,7 @@
 
                   <ng-container matColumnDef="dataNascimento">
                         <th mat-header-cell *matHeaderCellDef> Data de Nascimento </th>
-                        <td mat-cell *matCellDef="let aluno"> {{aluno.DataNascimento}} </td>
+                        <td mat-cell *matCellDef="let aluno"> {{aluno.DataNascimento | date}} </td>
                       </ng-container>
 
                       <ng-container matColumnDef="cpf">
@@ -37,7 +37,7 @@
               <!-- Position Column -->
               <ng-container matColumnDef="acao">
                   <th mat-header-cell *matHeaderCellDef>  </th>
-                  <td mat-cell *matCellDef="let aluno"> <button mat-flat-button color="accent" routerLink="/aluno-detalhe/{{aluno.idAluno}}" selected>Detalhe</button></td>
+                  <td mat-cell *matCellDef="let aluno"> <button mat-flat-button color="primary" routerLink="/alunos-detalhe/{{aluno.IdAluno}}" selected>Detalhes</button></td>
                 </ng-container>
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

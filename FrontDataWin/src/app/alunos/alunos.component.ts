@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Aluno} from '../../Model/aluno';
 import {AlunoService} from '../aluno.service';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-alunos',
@@ -10,14 +12,12 @@ import {AlunoService} from '../aluno.service';
 export class AlunosComponent implements OnInit {
 
 
-  displayedColumns: string[] = ['nome', 'telefone', 'email', 'endereco', 'dataNascimento', 'cpf'];
+  displayedColumns: string[] = ['nome', 'telefone', 'email', 'endereco', 'dataNascimento', 'cpf', 'acao'];
   dataSource: Aluno[];
   isLoadingResults: boolean;
 
 
-  constructor(private api: AlunoService) {
-    
-   }
+  constructor(private api: AlunoService, private router: Router) { }
 
   ngOnInit() {
     this.api.getAlunos()
@@ -30,5 +30,5 @@ export class AlunosComponent implements OnInit {
       this.isLoadingResults =false;
     })
   }
+ }
 
-}

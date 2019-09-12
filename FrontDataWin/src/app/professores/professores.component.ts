@@ -9,7 +9,7 @@ import {Professor} from '../../Model/professor';
 })
 export class ProfessoresComponent implements OnInit {
 
-  displayedColumns: string[] = ['nome', 'cargo', 'titulacao', 'telefone', 'email'];
+  displayedColumns: string[] = ['nome', 'cargo', 'titulacao', 'telefone', 'email', 'acao'];
   dataSource: Professor[];
   isLoadingResults: boolean;
 
