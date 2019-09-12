@@ -14,6 +14,7 @@ export class MenuComponent {
     .pipe(
       map(result => result.matches),
       shareReplay()
+      
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}

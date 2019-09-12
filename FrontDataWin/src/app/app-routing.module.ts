@@ -8,6 +8,10 @@ import { AlunosComponent } from './alunos/alunos.component';
 import { AlunosDetalheComponent } from './alunos-detalhe/alunos-detalhe.component';
 import { AlunosNovoComponent } from './alunos-novo/alunos-novo.component';
 import { AlunosEditComponent } from './alunos-edit/alunos-edit.component';
+import { TurmasComponent } from './turmas/turmas.component';
+import { TurmasDetalheComponent } from './turmas-detalhe/turmas-detalhe.component';
+import { TurmasNovoComponent } from './turmas-novo/turmas-novo.component';
+import { TurmasEditComponent } from './turmas-edit/turmas-edit.component';
 
 const routes: Routes = [
   {
@@ -56,6 +60,30 @@ const routes: Routes = [
   },
   {path:'',
   redirectTo: '/alunos',
+  pathMatch: 'full'
+  },
+  {
+    path: 'turmas',
+    component: TurmasComponent,
+    data: {title: 'Lista de Turmas'}
+  },
+  {
+    path: 'turmas-detalhe/:id',
+    component: TurmasDetalheComponent,
+    data: {title: 'Detalhes da Turma'}
+  },
+  {
+    path: 'turmas-novo',
+    component: TurmasNovoComponent,
+    data: {title: 'Cadastrar Turma'}
+  },
+  {
+    path: 'turmas-edit/:id',
+    component: TurmasEditComponent,
+    data: {title: 'Editar Turma'}
+  },
+  {path:'',
+  redirectTo: '/turmas',
   pathMatch: 'full'
   }
 ];

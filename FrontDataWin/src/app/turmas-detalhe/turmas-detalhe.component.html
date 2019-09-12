@@ -1,0 +1,33 @@
+<div class="example-container mat-elevation-z8">
+    <div class="example-loading-shade"
+         *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title><h2>{{turma.Nome}}</h2></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <dl>
+          <dt>Cargo:</dt>
+          {{turma.Cargo}}
+
+          <dt>Titulação:</dt>
+          {{turma.Titulacao}}
+
+          <dt>Telefone:</dt>
+          {{turma.Telefone}}
+
+          <dt>Email</dt>
+          {{turma.Email}}
+
+        </dl>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button color="primary" class="teste" routerLink="/turmas-edit/{{turma.IdTurma}}"><mat-icon>edit</mat-icon> Editar</button>
+        <button mat-flat-button color="warn" (click)="deleteTurma(turma.IdTurma)"><mat-icon>delete</mat-icon> Excluir</button>
+        <button mat-flat-button color="accent" class="teste" routerLink="/turmas"><mat-icon>home</mat-icon> Voltar</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+

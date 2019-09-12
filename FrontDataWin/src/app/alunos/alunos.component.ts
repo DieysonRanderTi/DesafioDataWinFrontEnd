@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Aluno} from '../../Model/aluno';
 import {AlunoService} from '../aluno.service';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-alunos',

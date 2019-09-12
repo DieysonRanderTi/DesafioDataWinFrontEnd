@@ -13,7 +13,6 @@ import { MatButtonModule, MatCardModule, MatIconModule, MatInputModule,
   MatListModule, MatProgressSpinnerModule, MatSelectModule, MatSidenavModule,
   MatTableModule, MatToolbarModule } from '@angular/material';
 import { MenuComponent } from './menu/menu.component';
-import { LayoutModule } from '@angular/cdk/layout';
 import { AlunosComponent } from './alunos/alunos.component';
 import { AlunosDetalheComponent } from './alunos-detalhe/alunos-detalhe.component';
 import { AlunosEditComponent } from './alunos-edit/alunos-edit.component';
@@ -23,6 +22,12 @@ import { AlunoService } from './aluno.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import ptBr from '@angular/common/locales/pt';
+import { TurmasComponent } from './turmas/turmas.component';
+import { TurmasDetalheComponent } from './turmas-detalhe/turmas-detalhe.component';
+import { TurmasEditComponent } from './turmas-edit/turmas-edit.component';
+import { TurmasNovoComponent } from './turmas-novo/turmas-novo.component';
+import { TurmaService } from 'src/services/turma.service';
+import { RouterModule } from '@angular/router';
 
 registerLocaleData(ptBr)
 
@@ -38,13 +43,18 @@ registerLocaleData(ptBr)
     AlunosComponent,
     AlunosDetalheComponent,
     AlunosEditComponent,
-    AlunosNovoComponent
+    AlunosNovoComponent,
+    TurmasComponent,
+    TurmasDetalheComponent,
+    TurmasEditComponent,
+    TurmasNovoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    RouterModule,
     BrowserAnimationsModule,
     HttpClientModule,  
     MatButtonModule,
@@ -60,7 +70,9 @@ registerLocaleData(ptBr)
   ],
   providers: [HttpClient,
               ProfessorService, 
-              AlunoService, { provide: LOCALE_ID, useValue: 'pt' }],
+              AlunoService, 
+              TurmaService,
+              { provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
